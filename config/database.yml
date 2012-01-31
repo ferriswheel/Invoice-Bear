@@ -4,7 +4,7 @@ development:
   adapter: mysql2
   database: invoicebear_dev
   username: root
-  password: unc2012
+  password:
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -14,13 +14,13 @@ test:
   adapter: mysql2
   database: invoicebear_test
   user: root
-  password: unc2012
+  password:
   host: localhost
 
 production:
   adapter: mysql
   database: invoicebear_production
   user: root
-  password: unc2012
+  password:
   pool: 5
   timeout: 5000

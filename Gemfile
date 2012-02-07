@@ -10,6 +10,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'rspec-rails'
 gem 'cucumber-rails'
+gem 'aws-s3'
 #gem 'mysql2'
 
 

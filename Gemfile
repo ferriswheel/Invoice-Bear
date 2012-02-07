@@ -8,6 +8,8 @@ gem 'rails', '3.1.3'
 gem 'sqlite3'
 gem 'execjs'
 gem 'therubyracer'
+gem 'rspec-rails'
+gem 'cucumber-rails'
 #gem 'mysql2'
 
 

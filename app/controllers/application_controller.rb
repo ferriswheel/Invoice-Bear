@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user
+  helper_method :current_user_session, :current_user
 
   private
 
@@ -11,7 +11,24 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-  	return @current_user if defined? (@current_user)
-  	@current_user = current_user_session && current_user_session.record
+  	return @current_user if defined?(@current_user)
+  	@current_user = current_user_session && current_user_session.user
+  end
+  
+  def require_user
+    unless current_user
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to sign_in_path
+      return false
+    end
+    true
+  end
+  
+  def require_no_user
+    if current_user
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to root_path
+      return false
+    end
   end
 end

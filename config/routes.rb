@@ -1,4 +1,8 @@
 Invoicebear::Application.routes.draw do
+  resources :items
+
+  resources :clients
+
   resources :invoices
 
   # The priority is based upon order of creation:

@@ -11,11 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131211714) do
+ActiveRecord::Schema.define(:version => 20120210035848) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "phone"
+    t.string   "mphone"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "bname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "invoices", :force => true do |t|
     t.integer  "number"
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_id"
+    t.string   "status"
+  end
+
+  create_table "items", :force => true do |t|
+    t.text     "description"
+    t.decimal  "unit_cost"
+    t.integer  "quantity"
+    t.decimal  "discount"
+    t.integer  "invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

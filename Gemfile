@@ -12,7 +12,7 @@ gem 'therubyracer'
 gem 'rspec-rails'
 gem 'cucumber-rails'
 gem 'aws-s3'
-#gem 'mysql2'
+gem 'authlogic'
 
 
 # Gems used only for assets and not required

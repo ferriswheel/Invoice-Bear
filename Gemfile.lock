@@ -31,6 +31,9 @@ GEM
       multi_json (~> 1.0)
     ansi (1.4.1)
     arel (2.2.1)
+    authlogic (3.1.0)
+      activerecord (>= 3.0.7)
+      activerecord (>= 3.0.7)
     aws-s3 (0.6.2)
       builder
       mime-types
@@ -163,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic
   aws-s3
   coffee-rails (~> 3.1.1)
   cucumber-rails

@@ -5,6 +5,7 @@ development:
   database: invoicebear_development
   encoding: utf8
   username: christopher
+  password: MonfortC1S
   pool: 5
 
 # Warning: The database defined as "test" will be erased and
@@ -14,10 +15,14 @@ test:
   adapter: postgresql
   database: invoicebear_test
   encoding: utf8
+  username: christopher
+  password: MonfortC1S
   pool: 5
 
 production:
   aadapter: postgresql
   database: invoicebear_production
+  username: christopher
+  password: MonfortC1S
   encoding: utf8
   pool: 5

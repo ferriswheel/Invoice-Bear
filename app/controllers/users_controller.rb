@@ -3,11 +3,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
   end
 
   # GET /users/1
@@ -45,7 +40,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:notice] = "User created!"
-        redirect_to users_url
+        redirect_to @user
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }

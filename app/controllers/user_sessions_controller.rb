@@ -2,7 +2,6 @@ class UserSessionsController < ApplicationController
   # GET /user_sessions
   # GET /user_sessions.json
   def index
-    @user_sessions = UserSession.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,8 +43,8 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to @user_session, notice: 'User session was successfully created.' }
-        format.json { render json: @user_session, status: :created, location: @user_session }
+        flash[:notice] = "logged in!"
+        redirect_to :users
       else
         format.html { render action: "new" }
         format.json { render json: @user_session.errors, status: :unprocessable_entity }

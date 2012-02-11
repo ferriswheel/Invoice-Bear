@@ -12,7 +12,7 @@ gem 'therubyracer'
 gem 'rspec-rails'
 gem 'cucumber-rails'
 gem 'aws-s3'
-gem 'authlogic'
+gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 
 
 # Gems used only for assets and not required

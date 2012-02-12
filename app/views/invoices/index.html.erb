@@ -1,21 +1,21 @@
-<h1>Listing invoices</h1>
+<h1>Invoices</h1>
 
-<table>
+<table id="invoices_table" cellspacing="0">
   <tr>
     <th>Number</th>
     <th>Title</th>
     <th></th>
-    <th></th>
+    <th>Actions</th>
     <th></th>
   </tr>
 
 <% @invoices.each do |invoice| %>
-  <tr>
+  <tr class="<%= cycle('odd','even') %>">
     <td><%= invoice.number %></td>
     <td><%= invoice.title %></td>
-    <td><%= link_to 'Show', invoice %></td>
+    <td><%= link_to 'View', invoice %></td>
     <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

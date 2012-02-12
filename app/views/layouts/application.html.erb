@@ -2,21 +2,41 @@
 <html>
 <head>
   <title>Invoicebear</title>
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="nav">
+<header>
+<div id="header_wrapper">
+<div id="logo"><h1>InvoiceBear</h1></div>
+<div id="user_links">
 	<% if current_user %>
-		<%= link_to "Edit Profile", edit_user_path(current_user) %>
+		Logged in as <b><%= current_user.username %></b> | 
+		<%= link_to "Edit Profile", edit_user_path(current_user) %> | 
 		<%= link_to "Logout", session_path, :method => :delete %>
 	<% else %>
 	<%= link_to "Register", new_user_path %>
 	<%= link_to "Login", new_session_path %>
 	<% end %>
 </div>
+</div>
+</header>
+<div id="nav_bar">
+<nav>
+	<ul>
+		<li><%= link_to "Dashboard", invoices_path %></li>
+		<li><%= link_to "Invoices", invoices_path %></li>
+		<li><%= link_to "Clients", clients_path %></li>
+		<li><%= link_to "Reports", clients_path %></li>
+	</ul>
+</nav>
+</div><!-- nav bar -->
+<div id="content">
 <%= yield %>
-
+</div>
+<footer>
+	<p>Copyright 2012 InvoiceBear.com - Created by Monfort College of Business CIS Students</p>
+</footer>
 </body>
 </html>

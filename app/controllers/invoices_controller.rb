@@ -25,6 +25,9 @@ class InvoicesController < ApplicationController
   # GET /invoices/new.json
   def new
     @invoice = Invoice.new
+    2.times do
+      item = @invoice.items.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb

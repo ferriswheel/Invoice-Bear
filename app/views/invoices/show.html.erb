@@ -10,6 +10,18 @@
   <%= @invoice.title %>
 </p>
 
+<p>
+	<b>Invoice Items:</b>
+	<% @invoice.items.each do |i| %>
+	<ul>
+		<li><%= i.description %></li>
+		<li><%= i.unit_cost %></li>
+		<li><%= i.quantity %></li>
+		<li><%= i.discount %></li>
+	</ul>
+	<% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

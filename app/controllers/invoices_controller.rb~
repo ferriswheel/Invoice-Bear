@@ -25,7 +25,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new.json
   def new
     @invoice = Invoice.new
-    1.times do
+    2.times do
       item = @invoice.items.build
     end
 

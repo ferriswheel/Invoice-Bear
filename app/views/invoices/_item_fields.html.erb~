@@ -1,4 +1,4 @@
-<div class="fields" class="invoice_items_list">
+<div class="fields" class="invoice_items">
 <p>
    <table width="95%" id="invoice_items">
 	<tr class="header">

@@ -10,6 +10,6 @@
 
 table#invoice_items {width:95%;}
 table#invoice_items textarea {width:550px;height:35px;}
-table#invoice_items input {height:35px;width:85px;}
+table#invoice_items input {height:35px;width:55px;}
 table#invoice_items .header {font-weight:bold;text-align:center;}
 

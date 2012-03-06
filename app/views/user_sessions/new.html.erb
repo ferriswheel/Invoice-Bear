@@ -1,5 +1,10 @@
 <h1>Login</h1>
 
+<% if flash[:notice] %>
+    <p class="flash-notice" style="color:red;"><%= flash[:notice] %></p>
+  <% end %>
+
+
 <%= form_for @user_session, :url => session_path do |f| %>
   <% if @user_session.errors.any? %>
     <div id="error_explanation">

@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+
+  before_filter :require_user
+
   # GET /clients
   # GET /clients.json
   def index

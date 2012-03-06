@@ -1,3 +1,4 @@
+<div class="errors">
 <%= form_for(@invoice) do |f| %>
   <% if @invoice.errors.any? %>
     <div id="error_explanation">
@@ -10,25 +11,35 @@
       </ul>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
+
+<div id="invoice_details">
+  <div class="invoice_number_field">
     <%= f.label :number %><br />
     <%= f.number_field :number %>
   </div>
-  <div class="field">
+  <div class="invoice_title_field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="invoice_companyid_field">
 	<%= f.label :client_id %><br />
-	<%= select_tag "invoice[client_id]", options_from_collection_for_select(Client.all,"id","bname") %>
+	<%= select_tag "invoice[client_id]", options_from_collection_for_select(Client.all,"id","bname"), {:prompt => 'Select Client...'} %>
   </div>
+</div><!-- invoice details -->
+<span style="clear:both;padding:0;margin:0;">&nbsp;</span>
 
+<div class="invoice_items_container">
+<div class="invoice_line_items">
 <!-- Survey Items display -->
 <%= f.fields_for :items do |builder| %>
   <%= render "item_fields", :f => builder %>
 <% end %>
 <%= link_to_add_fields "Add New Item", f, :items %>
+</div>
+
+</div>
 
   <div class="actions">
     <%= f.submit %>

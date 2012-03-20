@@ -1,25 +1,35 @@
-<h1>Invoices</h1>
+  <div class="container">
+    <div class="row">
+      <div class="span9">
+      	<h1>Invoices</h1>
 
-<table id="invoices_table" cellspacing="0">
-  <tr>
-    <th>Number</th>
-    <th>Title</th>
-    <th></th>
-    <th>Actions</th>
-    <th></th>
-  </tr>
+		<% if @invoices.count == 0 %>
+			<p>Uh oh! You don't have any invoices. Why don't you <%= link_to 'Create An Invoice', new_invoice_path %></p>
+		<% else %>
+		<table class="table table-striped">
+		  <tr>
+		    <th>Number</th>
+		    <th>Title</th>
+		    <th></th>
+		    <th>Actions</th>
+		    <th></th>
+		  </tr>
 
-<% @invoices.each do |invoice| %>
-  <tr class="<%= cycle('odd','even') %>">
-    <td><%= invoice.number %></td>
-    <td><%= invoice.title %></td>
-    <td><%= link_to 'View', invoice %></td>
-    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+		<% @invoices.each do |invoice| %>
+		  <tr class="<%= cycle('odd','even') %>">
+		    <td><%= invoice.number %></td>
+		    <td><%= invoice.title %></td>
+		    <td><i class="icon-file"></i> <%= link_to 'View', invoice_path(invoice) %></td>
+		    <td><i class="icon-pencil"></i> <%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+		    <td><i class="icon-remove-sign"></i> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+      </div>
 
-<br />
-
-<%= link_to 'New Invoice', new_invoice_path %>
+	  <div class="span3">
+	  	<%= link_to 'New Invoice', new_invoice_path, :class => "btn btn-primary btn-large" %>
+	  </div>
+		<% end %>
+    </div>
+  </div>

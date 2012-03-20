@@ -10,7 +10,6 @@ gem 'pg'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rspec-rails'
-gem 'cucumber-rails'
 gem 'aws-s3'
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 
@@ -40,4 +39,5 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'cucumber-rails'
 end

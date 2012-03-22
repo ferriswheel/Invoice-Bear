@@ -1,4 +1,6 @@
 Invoicebear::Application.routes.draw do
+  get "public_pages/index"
+
   resources :users
   resource :session, :controller => 'user_sessions'
 
@@ -12,8 +14,8 @@ Invoicebear::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-     #match 'login' => 'user_sessions#new', :as => :login
-     #match 'logout' => 'user_sessions#destroy', :as => :logout
+     match 'features' => 'public_pages#features', :as => :features
+     match 'pricing' => 'public_pages#pricing', :as => :pricing
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
@@ -58,7 +60,7 @@ Invoicebear::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'clients#index'
+   root :to => 'public_pages#index'
 
   # See how all your routes lay out with "rake routes"
 

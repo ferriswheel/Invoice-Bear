@@ -7,31 +7,3 @@
 */
 
 body {margin:0;padding:0;background-color:#e1e1e1;font-family:Verdana,Arial,Times;}
-#wrapper {width:960px;margin:0 auto;background:white;}
-#logo {width:200px;float:left;}
-#user_links {float: right;width:400px;color:white;padding-top:10px;font-size:14px;text-align:right;}
-#user_links a {color:#FF8D40;}
-h1,h2,h3,h4 {padding:0px;margin:0px;}
-header {
-	height:40px;
-	padding-top:2px;
-	background-color:#083c33;
-}
-
-header h1 {color:white;font-size:14px;padding-top:10px;}
-#header_wrapper {width:960px;margin:0 auto;}
-
-#nav_bar {height:65px;background:url(nav_bg.gif) repeat-x;
-}
-nav {padding:0px;height:65px;background:url(nav_bg.gif) repeat-x;margin:0 auto;width:960px;
-}
-nav ul {margin:0;padding:0;height:65px;padding-top:35px;}
-nav ul li {display: inline;background-color:white;padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:10px;margin-right:10px;background-color:#006957;border:1px solid #016350;}
-nav ul li a {padding-top:20px;color:#FFF;text-decoration:none;}
-nav ul li a:hover {text-decoration:underline;color:#e2e2e2;}
-
-.clear-fix {clear:both;}
-
-#content {width:960px;margin:0 auto;padding:10px;background-color:white;}
-
-footer {width:960px;margin:0 auto;font-size:11px;text-align:center;}

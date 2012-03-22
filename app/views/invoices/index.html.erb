@@ -10,18 +10,14 @@
 		  <tr>
 		    <th>Number</th>
 		    <th>Title</th>
-		    <th></th>
 		    <th>Actions</th>
-		    <th></th>
 		  </tr>
 
 		<% @invoices.each do |invoice| %>
 		  <tr class="<%= cycle('odd','even') %>">
 		    <td><%= invoice.number %></td>
 		    <td><%= invoice.title %></td>
-		    <td><i class="icon-file"></i> <%= link_to 'View', invoice_path(invoice) %></td>
-		    <td><i class="icon-pencil"></i> <%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-		    <td><i class="icon-remove-sign"></i> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete %></td>
+		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> </td>
 		  </tr>
 		<% end %>
 		</table>

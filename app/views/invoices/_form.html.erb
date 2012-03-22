@@ -1,41 +1,44 @@
-<div class="errors">
 <%= form_for(@invoice) do |f| %>
-  <% if @invoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
-
-      <ul>
-      <% @invoice.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% f.error_messages %>
   <% end %>
-</div>
 
-
-<div id="invoice_details">
-  <div class="invoice_number_field">
-    <%= f.label :number %><br />
-    <%= f.number_field :number %>
-  </div>
+<div class="row">
+	<div class="span4">
+		<div class="invoice_number_field">
+    	<%= f.label :number %><br />
+    	<%= f.number_field :number %>
+  		</div>
+	</div>
+	<div class="span4">
   <div class="invoice_title_field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+</div>
+<div class="span4">
   <div class="invoice_companyid_field">
 	<%= f.label :client_id %><br />
 	<%= select_tag "invoice[client_id]", options_from_collection_for_select(Client.all,"id","bname"), {:prompt => 'Select Client...'} %>
   </div>
-</div><!-- invoice details -->
-<span style="clear:both;padding:0;margin:0;">&nbsp;</span>
+</div>
+</div><!-- row -->
 
 <div class="invoice_items_container">
 <div class="invoice_line_items">
+<table class="table table-striped">
+	<tr class="header">
+	<td>Description</td>
+	<td>Unit Cost</td>
+	<td>Quantity</td>
+	<td>Discount</td>
+	<td>Total</td>
+	<td></td>
+	</tr>
 <!-- Survey Items display -->
 <%= f.fields_for :items do |builder| %>
   <%= render "item_fields", :f => builder %>
 <% end %>
+</table>
 <%= link_to_add_fields "Add New Item", f, :items %>
 </div>
 

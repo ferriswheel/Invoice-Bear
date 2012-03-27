@@ -11,6 +11,7 @@
 		<table class="table table-striped">
 		  <tr>
 		    <th>Number</th>
+		    <th>Total</th>
 		    <th>Title</th>
 		    <th>Actions</th>
 		  </tr>
@@ -18,6 +19,7 @@
 		<% @invoices.each do |invoice| %>
 		  <tr class="<%= cycle('odd','even') %>">
 		    <td><%= invoice.number %></td>
+		    <td><%= number_to_currency(invoice.total) %></td>
 		    <td><%= invoice.title %></td>
 		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> </td>
 		  </tr>

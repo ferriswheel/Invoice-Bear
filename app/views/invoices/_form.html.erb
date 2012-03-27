@@ -20,6 +20,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, ['draft', 'sent', 'paid'].collect { |s| [t('.'+s), s] } %>
+  </div>
+  <div class="field">
 <%= f.label :client_id %><br />
 <%= select_tag "invoice[client_id]", options_from_collection_for_select(Client.all,"id","bname") %>
   </div>

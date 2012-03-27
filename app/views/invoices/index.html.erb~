@@ -3,12 +3,16 @@
       <div class="span9">
       	<h1>Invoices</h1>
 
+		<p id="notice"><%= notice %></p>
+
 		<% if @invoices.count == 0 %>
 			<p>Uh oh! You don't have any invoices. Why don't you <%= link_to 'Create An Invoice', new_invoice_path %></p>
 		<% else %>
 		<table class="table table-striped">
 		  <tr>
 		    <th>Number</th>
+		    <th>Total</th>
+		    <th>Status</th>
 		    <th>Title</th>
 		    <th>Actions</th>
 		  </tr>
@@ -16,6 +20,14 @@
 		<% @invoices.each do |invoice| %>
 		  <tr class="<%= cycle('odd','even') %>">
 		    <td><%= invoice.number %></td>
+		    <td><%= number_to_currency(invoice.total) %></td>
+                    <% if invoice.status == "draft" %>
+		    <td><span class="badge"><%= invoice.status %></span></td>
+		    <% elseif invoice.status == "paid" %>
+		    <td><span class="badge badge-success"><%= invoice.status %></td>
+                    <% else %>
+                    <td><span class="badge badge-info"><%= invoice.status %></td>
+                    <% end %>
 		    <td><%= invoice.title %></td>
 		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> </td>
 		  </tr>

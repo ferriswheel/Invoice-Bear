@@ -12,6 +12,7 @@
 		  <tr>
 		    <th>Number</th>
 		    <th>Total</th>
+		    <th>Status</th>
 		    <th>Title</th>
 		    <th>Actions</th>
 		  </tr>
@@ -20,6 +21,13 @@
 		  <tr class="<%= cycle('odd','even') %>">
 		    <td><%= invoice.number %></td>
 		    <td><%= number_to_currency(invoice.total) %></td>
+                    <% if invoice.status == "draft" %>
+		    <td><span class="badge"><%= invoice.status %></span></td>
+		    <% elsif invoice.status == "paid" %>
+		    <td><span class="badge badge-success"><%= invoice.status %></td>
+                    <% else %>
+                    <td><span class="badge badge-info"><%= invoice.status %></td>
+                    <% end %>
 		    <td><%= invoice.title %></td>
 		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> </td>
 		  </tr>

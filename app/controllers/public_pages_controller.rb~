@@ -1,6 +1,6 @@
 class PublicPagesController < ApplicationController
 
-  layout nil
+ render :layout => false
 
   def index
   end

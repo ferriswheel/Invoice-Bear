@@ -2,5 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+label {font-weight:bold;}
+
+.invoice_description textarea {width:350px;height:40px;}
 
 
+table tr.header td {font-weight:bold;}

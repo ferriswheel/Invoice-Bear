@@ -17,9 +17,8 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
 
     if @user_session.save
-      flash[:notice] = "Login successful!"
-
-      redirect_to '/invoices'
+      format.html { redirect_to(:invoices, :notice => 'Login Successful') }
+      format.xml { render :xml => @user_session, :status => :created, :location => @user_session }
     else
       Rails.logger.info("Failed login for #{params[:email]}")
       flash[:notice] = "Username / Password Not Recognized"

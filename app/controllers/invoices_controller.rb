@@ -1,6 +1,7 @@
 class InvoicesController < ApplicationController
 
   before_filter :require_user
+ 
 
   # GET /invoices
   # GET /invoices.json
@@ -19,6 +20,11 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     @invoice = Invoice.find(params[:id])
+    
+    if @invoice.user_id != current_user.id
+		flash[:error] = "you do not have access here"
+		redirect_to(:action => 'index') and return
+    end
 
     respond_to do |format|
       format.html # show.html.erb

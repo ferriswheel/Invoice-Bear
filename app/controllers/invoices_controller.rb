@@ -4,8 +4,10 @@ class InvoicesController < ApplicationController
 
   # GET /invoices
   # GET /invoices.json
+
+  
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.where(:user_id => current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210194444) do
+ActiveRecord::Schema.define(:version => 20120403021122) do
 
   create_table "clients", :force => true do |t|
     t.string   "fname"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120210194444) do
     t.datetime "updated_at"
     t.integer  "client_id"
     t.string   "status"
+    t.integer  "user_id"
   end
 
   create_table "items", :force => true do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120210194444) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
 end

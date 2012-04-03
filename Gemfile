@@ -15,6 +15,7 @@ gem 'rspec-rails'
 gem 'aws-s3'
 gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "rails3"
 gem "heroku"
+gem "sendgrid"
 
 
 # Gems used only for assets and not required

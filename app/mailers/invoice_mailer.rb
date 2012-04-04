@@ -5,6 +5,6 @@ class InvoiceMailer < ActionMailer::Base
   
   def invoice_notification(invoice)
 	@invoice = invoice
-	mail(:to => client.email, :subject => "New Invoice For You")
+	mail(:to => invoice.client.email, :subject => "New Invoice For You")
   end
 end

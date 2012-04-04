@@ -59,6 +59,10 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
+      
+      # Tell the InvoiceMailer to send a notification email
+        InvoiceMailer.invoice_notification(@invoice).deliver
+      
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render json: @invoice, status: :created, location: @invoice }
       else

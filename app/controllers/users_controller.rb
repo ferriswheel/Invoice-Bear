@@ -43,6 +43,7 @@ class UsersController < ApplicationController
       
         # Tell the UserMailer to send a welcome Email after save
         UserMailer.welcome_email(@user).deliver
+        UserMailer.internal_new_user_email(@user).deliver
         
         format.html { redirect_to("/invoices", :notice => 'Registration successfull.') }
         format.xml { render :xml => @user, :status => :created, :location => @user }

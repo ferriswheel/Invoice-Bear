@@ -29,6 +29,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @invoice }
+      format.pdf { render :layout => false }
     end
   end
 

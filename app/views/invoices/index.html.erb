@@ -33,7 +33,7 @@
                     <td><span class="badge badge-info"><%= invoice.status %></td>
                     <% end %>
 		    <td><%= invoice.title %></td>
-		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> </td>
+		    <td><%= link_to 'View', invoice, :class => "btn" %> <%= link_to 'Edit', edit_invoice_path(invoice), :class => "btn" %> <%= link_to 'Delete', invoice, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %> <%= link_to "PDF", invoice_path(invoice, :format => :pdf), :target => '_blank' %> </td>
 		  </tr>
 		<% end %>
 		</table>

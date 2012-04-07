@@ -60,9 +60,15 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
+        
+        template = File.read("#{Rails.root}/app/views/invoices/show.pdf.prawn") 
+        pdf = Prawn::Document.new(:page_size => 'A4') 
+        
+        attachment = pdf.render 
+
       
       # Tell the InvoiceMailer to send a notification email
-        InvoiceMailer.invoice_notification(@invoice).deliver
+        InvoiceMailer.invoice_notification(attachment,@invoice).deliver
       
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render json: @invoice, status: :created, location: @invoice }

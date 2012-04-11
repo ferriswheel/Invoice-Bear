@@ -1,27 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
 <p id="notice"><%= notice %></p>
+<h1>Invoice (<%= number_to_currency(@invoice.total) %>)</h1>
+
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Action
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <!-- dropdown menu links -->
+	<%= link_to 'Edit', edit_invoice_path(@invoice) %>
+	<%= link_to 'Delete', @invoice, confirm: 'Are you sure?', method: :delete %>
+  </ul>
+</div>
+
+<span class="ribbon"><%= @invoice.status %>
+	</span>
+
+<div class="field">
+	<b>Invoice Summary:</b>
+	<%= @invoice.title %>
+</div>
+<div class="field">
+	<b>Invoice Date:</b>
+	<%= @invoice.created_at.to_s(:simple) %>
+</div>
 
 <p>
-  <b>Number:</b>
-  <%= @invoice.number %>
-</p>
+	<table class="table table-condensed">
+	<tr class="header">
+	<td>Description</td>
+	<td>Unit Cost</td>
+	<td>Quantity</td>
+	<td>Discount</td>
+	<td>Total</td>
+	<td></td>
+	</tr>
 
-<p>
-  <b>Title:</b>
-  <%= @invoice.title %>
-</p>
-
-<p>
-	<b>Invoice Items:</b>
-	<% @invoice.items.each do |i| %>
-	<ul>
-		<li><%= i.description %></li>
-		<li><%= i.unit_cost %></li>
-		<li><%= i.quantity %></li>
-		<li><%= i.discount %></li>
-	</ul>
+	<% @invoice.items.each do |item| %>
+	<tr>
+	<td class="invoice_description"><%= item.description %></td>
+	<td class="invoice_unit_cost"><%= item.unit_cost %></td>
+	<td class="invoice_quantity"><%= item.quantity %></td>
+	<td class="invoice_discount"><%= item.discount %></td>
+	<td class="invoice_item_total">$0.00</td>
+	</tr>
 	<% end %>
+	</table>
 </p>
 
-<h2>TOTAL FOR THIS INVOICE: <%= number_to_currency(@invoice.total) %></h2>
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+</div>
+</div>
+</div>

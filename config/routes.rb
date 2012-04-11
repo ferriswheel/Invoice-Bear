@@ -6,7 +6,7 @@ Invoicebear::Application.routes.draw do
 
   resources :items
 
-  resources :clients
+  resources :contacts
 
   resources :invoices
 

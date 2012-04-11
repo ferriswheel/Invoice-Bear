@@ -23,7 +23,7 @@
 		  <tr class="<%= cycle('odd','even') %>">
 			<td><%= invoice.created_at.to_s(:simple) %></td>
 		    <td><%= invoice.number %></td>
-		    <td><%= invoice.client.fname + " " + invoice.client.lname %></td>
+		    <td><%= invoice.contact.fname + " " + invoice.contact.lname %></td>
 		    <td><%= number_to_currency(invoice.total) %></td>
                     <% if invoice.status == "draft" %>
 		    <td><span class="badge"><%= invoice.status %></span></td>

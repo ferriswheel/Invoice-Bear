@@ -60,16 +60,24 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-
-      # Tell the InvoiceMailer to send a notification email
-        InvoiceMailer.invoice_notification(@invoice).deliver
-      
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render json: @invoice, status: :created, location: @invoice }
       else
         format.html { render action: "new" }
         format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def send_invoice_notification
+    @i = Invoice.find(params[:invoice_id])
+    
+    # Tell the InvoiceMailer to send a notification email
+      InvoiceMailer.invoice_notification(@i).deliver
+    
+    respond_to do |format|
+        format.html { redirect_to "/invoices", notice: "Invoice notification was successfully sent to your contact!" }
+        format.json
     end
   end
 

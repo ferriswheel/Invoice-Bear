@@ -15,6 +15,7 @@
 	<%= link_to 'Delete', @invoice, confirm: 'Are you sure?', method: :delete %>
   </ul>
 </div>
+<a href="/invoices/send_invoice_notification/<%= @invoice.id %>">Send Invoice</a>
 
 <span class="ribbon"><%= @invoice.status %>
 	</span>

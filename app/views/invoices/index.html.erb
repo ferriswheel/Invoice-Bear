@@ -3,7 +3,7 @@
       <div class="span12">
       	<h1>Invoices</h1>
 
-		<p id="notice"><%= notice %></p>
+		<p id="notice" class="alert alert-success"><%= notice %></p>
 
 		<% if @invoices.count == 0 %>
 			<p>Uh oh! You don't have any invoices. Why don't you <%= link_to 'Create An Invoice', new_invoice_path %></p>

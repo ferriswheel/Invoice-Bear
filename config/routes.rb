@@ -16,6 +16,8 @@ Invoicebear::Application.routes.draw do
   # Sample of regular route:
      match 'features' => 'public_pages#features', :as => :features
      match 'pricing' => 'public_pages#pricing', :as => :pricing
+     
+     match 'invoices/send_invoice_notification/:invoice_id' => 'invoices#send_invoice_notification'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

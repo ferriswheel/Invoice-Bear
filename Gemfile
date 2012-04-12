@@ -17,6 +17,7 @@ gem "authlogic", :git => "git://github.com/odorcicd/authlogic.git", :branch => "
 gem "heroku"
 gem "sendgrid"
 gem "prawn"
+gem "gravatar_image_tag"
 
 
 # Gems used only for assets and not required

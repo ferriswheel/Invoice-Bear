@@ -7,7 +7,7 @@
 <% @contacts.each do |contact| %>
   <li class="span3">
     <div class="thumbnail">
-      <img src="http://placehold.it/260x180" alt="">
+      <%= gravatar_image_tag("#{contact.email}", :alt => "#{contact.fname} #{contact.lname}", :align => 'left', :style => "padding:0px 10px 10px 0px;") %>
       <h4><%= contact.fname %> <%= contact.lname%></h4>
 	  <h5><%= contact.bname %></h5>
       <p><%= contact.email %></p>

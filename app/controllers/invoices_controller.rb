@@ -74,6 +74,11 @@ class InvoicesController < ApplicationController
     
     # Tell the InvoiceMailer to send a notification email
       InvoiceMailer.invoice_notification(@i).deliver
+      
+    invoice = @i
+    invoice.update_attributes(:status => "sent")
+    invoice.save!
+    
     
     respond_to do |format|
         format.html { redirect_to "/invoices", notice: "Invoice notification was successfully sent to your contact!" }

@@ -1,0 +1,26 @@
+body {margin:0;padding:0;background:#006363;font-family:Verdana,Arial,Times;margin-top:20px;font-size:12px;}
+
+#container {width:850px;margin:0 auto;}
+
+#main-content {background:white;float:left;width:670px;padding:10px 5px 10px 5px;-moz-box-shadow: 0px 0px 5px #888;
+-webkit-box-shadow: 0px 0px 5px #888;
+box-shadow: 0px 0px 5px #888;}
+#sidebar {background:#006363;float:left;width:170px;background:white;margin-top:20px;-webkit-border-top-left-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomleft: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;}
+.footer {text-align:center;padding:10px 0px;color:white;width:750px;margin:0 auto;padding-top:30px;}
+
+span.clear-fix {clear:both;padding:0;margin:0;}
+
+.invoice_details table {width:100%;margin-top:15px;font-size:11px;}
+.invoice_details table tr.header, .invoice_details table tr.header td {background:#E6E6E6;border-bottom:1px solid #A1A1A1;padding:5px 2px 5px 2px;font-weight:bold;}
+.invoice_details table td {padding:10px 0px 10px 0px;border-bottom:1px solid #f5f5f5;}
+
+.invoice_qty, .invoice_discount, .invoice_item_total, .invoice_unit_cost {text-align:center;}
+
+div.totals {font-size:12px;padding:10px;font-weight:bold;}
+
+#invoice_info td {padding:5px 2px 10px 5px;}

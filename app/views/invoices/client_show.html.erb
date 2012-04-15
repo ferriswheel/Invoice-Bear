@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InvoiceBear</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "contact_invoice_view", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="container">
+	<div id="sidebar">
+		<p><%= link_to image_tag("paypal_pay_now.gif", :border => 0), @invoice.paypal_url(invoices_url,payment_notifications_url), :class => 'dock-item' %></p>
+	</div>
+	
+	<div id="main-content">
+		<div class="invoice_content">
+		<h2>Invoice (<%= number_to_currency(@invoice.total) %>)</h2>
+		<table border="0" bordercolor="#FFCC00" style="background-color:#FFF" width="100%" cellpadding="0" cellspacing="0" id="invoice_info">
+			<tr>
+				<td><b>Invoice Summary</b></td>
+				<td><%= @invoice.title %></td>
+			</tr>
+			<tr>
+				<td><b>Date</b></td>
+				<td><%= @invoice.created_at.to_s(:simple) %></td>
+			</tr>
+			<tr>
+				<td><b>Invoice Number</b></td>
+				<td><%= @invoice.number %></td>
+			</tr>
+			<tr>
+				<td><b>Client Details</b></td>
+				<td><%= @invoice.contact.bname %><br /> <%= @invoice.contact.address %> <%= @invoice.contact.city %>, <%= @invoice.contact.state %>, <%= @invoice.contact.zip %></td>
+			</tr>
+		</table>
+		</div>
+		
+		<div class="invoice_details">
+			<table cellpadding="0" cellspacing="0">
+			<tr class="header">
+			<td width="300">Description</td>
+			<td width="100" class="invoice_unit_cost">Unit Cost</td>
+			<td width="70" class="invoice_qty">Quantity</td>
+			<td width="100"class="invoice_discount">Discount</td>
+			<td width="100" class="invoice_item_total">Total</td>
+			</tr>
+
+			<% @invoice.items.each do |item| %>
+			<tr class="items">
+			<td class="invoice_description"><%= item.description %></td>
+			<td class="invoice_unit_cost"><%= number_to_currency(item.unit_cost) %></td>
+			<td class="invoice_qty"><%= item.quantity %></td>
+			<td class="invoice_discount"><%= number_to_percentage(item.discount) %></td>
+			<td class="invoice_item_total"><%= number_to_currency(item.total_price) %></td>
+			</tr>
+			<% end %>
+			</table>
+			<div class="totals" align="right"><b>Total Due:</b> <%= number_to_currency(@invoice.total) %></div>
+		</div>
+	</div>
+ 	<span class="clear-fix">&nbsp;</span>
+</div><!-- container -->
+<div class="container footer">
+	<div class="row">
+		<div class="span12"><p>Copyright &copy; 2012 InvoiceBear.com</p></div>
+	</div>
+</div>
+</body>
+</html>

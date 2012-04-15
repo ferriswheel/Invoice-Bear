@@ -6,7 +6,7 @@
   <body>
     <h1>Dear <%= @invoice.contact.fname %>,</h1>
     <p>
-      You have a new invoice that needs to be paid in the amount of <%= @invoice.total %>. To view this invoice, please <%= link_to 'Click Here', invoice_url(@invoice, :only_path => false) %>
+      You have a new invoice from <%= @user.username %> in the amount of <%= number_to_currency(@invoice.total) %>. To view or pay this invoice, please <%= link_to 'Click Here', client_show_url(@invoice, :only_path => false) %>
     </p>
     <p>-InvoiceBear Team</p>
   </body>

@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
 
-  before_filter :require_user
+  before_filter :require_user, :except => [:client_show]
  
 
   # GET /invoices
@@ -29,6 +29,15 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @invoice }
+      format.pdf { render :layout => false }
+    end
+  end
+  
+  def client_show
+    @invoice = Invoice.find(params[:invoice_id])
+    
+    respond_to do |format|
+      format.html { render :layout => false }#client_show.html.erb
       format.pdf { render :layout => false }
     end
   end

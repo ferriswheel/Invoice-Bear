@@ -5,6 +5,8 @@ class InvoiceMailer < ActionMailer::Base
   
   def invoice_notification(invoice)
 	@invoice = invoice
+	u = @invoice.user_id
+	@user = User.find(u)
 	mail(:to => invoice.contact.email, :subject => "New Invoice For You")
   end
   

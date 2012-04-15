@@ -1,4 +1,6 @@
 Invoicebear::Application.routes.draw do
+  resources :payment_notifications
+
   get "public_pages/index"
 
   resources :users

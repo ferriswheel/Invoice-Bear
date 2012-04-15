@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411212137) do
+ActiveRecord::Schema.define(:version => 20120415045719) do
 
   create_table "contacts", :force => true do |t|
     t.string   "fname"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(:version => 20120411212137) do
     t.integer  "quantity"
     t.decimal  "discount"
     t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "invoice_id"
+    t.string   "status"
+    t.string   "transaction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

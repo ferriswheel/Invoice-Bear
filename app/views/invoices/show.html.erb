@@ -16,6 +16,7 @@
   </ul>
 </div>
 <a href="/invoices/send_invoice_notification/<%= @invoice.id %>">Send Invoice</a>
+<%= link_to "Pay invoice", @invoice.paypal_url(invoices_url,payment_notifications_url) %>
 
 <span class="ribbon"><%= @invoice.status %>
 	</span>

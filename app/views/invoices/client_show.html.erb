@@ -39,6 +39,11 @@ div.totals {font-size:12px;padding:10px;font-weight:bold;}
 </head>
 <body>
 <div id="container">
+	<% if @invoice.status == "paid" %>
+	<div style="width:700px;margin:0 auto;background:white;padding:15px;">
+	<h2 style="color:green;">This Invoice for the amount of <%= number_to_currency(@invoice.total) %> has been paid. Thank you!</h2>
+	</div>
+	<% else %>
 	<div id="sidebar">
 		<p><%= link_to image_tag("paypal_pay_now.gif", :border => 0), @invoice.paypal_url(invoices_url,payment_notifications_url), :class => 'dock-item' %></p>
 	</div>
@@ -96,5 +101,6 @@ div.totals {font-size:12px;padding:10px;font-weight:bold;}
 		<div class="span12"><p>Copyright &copy; 2012 InvoiceBear.com</p></div>
 	</div>
 </div>
+<% end %>
 </body>
 </html>

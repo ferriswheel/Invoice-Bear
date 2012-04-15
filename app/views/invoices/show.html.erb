@@ -4,19 +4,10 @@
 <p id="notice"><%= notice %></p>
 <h1>Invoice (<%= number_to_currency(@invoice.total) %>)</h1>
 
-<div class="btn-group">
-  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Action
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu">
-    <!-- dropdown menu links -->
-	<%= link_to 'Edit', edit_invoice_path(@invoice) %>
-	<%= link_to 'Delete', @invoice, confirm: 'Are you sure?', method: :delete %>
-  </ul>
+<div id="invoice_options" align="right">
+<a href="/invoices/send_invoice_notification/<%= @invoice.id %>" class="btn btn-info">Send to Client</a>
+<%= link_to "Edit Invoice", edit_invoice_path(@invoice), :class => "btn" %>
 </div>
-<a href="/invoices/send_invoice_notification/<%= @invoice.id %>">Send Invoice</a>
-<%= link_to "Pay invoice", @invoice.paypal_url(invoices_url,payment_notifications_url) %>
 
 <span class="ribbon"><%= @invoice.status %>
 	</span>
@@ -38,7 +29,6 @@
 	<td>Quantity</td>
 	<td>Discount</td>
 	<td>Total</td>
-	<td></td>
 	</tr>
 
 	<% @invoice.items.each do |item| %>
@@ -46,8 +36,8 @@
 	<td class="invoice_description"><%= item.description %></td>
 	<td class="invoice_unit_cost"><%= item.unit_cost %></td>
 	<td class="invoice_quantity"><%= item.quantity %></td>
-	<td class="invoice_discount"><%= item.discount %></td>
-	<td class="invoice_item_total">$0.00</td>
+	<td class="invoice_discount"><%= number_to_percentage(item.discount) %></td>
+	<td class="invoice_item_total"><%= item.total_price %></td>
 	</tr>
 	<% end %>
 	</table>

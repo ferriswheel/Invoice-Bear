@@ -47,7 +47,7 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
 
-    2.times do
+    1.times do
       item = @invoice.items.build
     end
 

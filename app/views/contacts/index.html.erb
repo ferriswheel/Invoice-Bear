@@ -2,7 +2,9 @@
   <div class="row">
     <div class="span12">
 <h1>Contacts</h1>
-
+<% if @contacts.count == 0 %>
+	<p>Uh oh! You don't have any contacts. Why don't you <%= link_to 'Create A Contact', new_contact_path %></p>
+<% else %>
 <ul class="thumbnails">
 <% @contacts.each do |contact| %>
   <li class="span3">
@@ -22,6 +24,6 @@
 <div class="span2">
 <%= link_to 'New Contact', new_contact_path, :class => "btn btn-primary" %>
 </div>
-
+<% end %>
 </div>
 </div>

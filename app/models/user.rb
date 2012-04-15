@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	acts_as_authentic
 	
 	has_many :invoices
+	has_many :contacts
 	
 	USER_TYPE = {
 	  :user => "User",

@@ -28,7 +28,7 @@
   </div>
   <div class="field">
 <%= f.label :client_id %><br />
-<%= select_tag "invoice[contact_id]", options_from_collection_for_select(Contact.all,"id","bname") %>
+<%= select_tag "invoice[contact_id]", options_from_collection_for_select(Contact.where(:user_id => current_user.id),"id","bname") %>
   </div>
 
 

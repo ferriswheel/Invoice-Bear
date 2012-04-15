@@ -7,4 +7,8 @@ class InvoiceMailer < ActionMailer::Base
 	@invoice = invoice
 	mail(:to => invoice.contact.email, :subject => "New Invoice For You")
   end
+  
+  def invoice_paid
+    mail(:to => "kcollignon@me.com", :subject => "Invoice Paid")
+  end
 end

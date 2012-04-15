@@ -7,7 +7,8 @@ class PaymentNotification < ActiveRecord::Base
   
   def mark_invoice_as_paid
     if status == "Completed"
-      invoice.update_attribute(:status, "sent")
+      invoice.update_attribute(:status, "paid")
+      InvoiceMailer.invoice_paid.deliver
     end
   end
 end

@@ -7,7 +7,7 @@
  *= require_tree . 
 */
 
-body {margin:0;padding:0;background:#006363 !important;font-family:Verdana,Arial,Times;}
+body {margin-top:70px;padding:0;background:#006363 !important;font-family:Verdana,Arial,Times;}
 
 .main-content {background:white;padding:10px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-moz-box-shadow: 0 0 5px 2px #1D7373;
 -webkit-box-shadow: 0 0 5px 2px #1D7373;

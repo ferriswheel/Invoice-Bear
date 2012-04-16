@@ -79,8 +79,10 @@ class InvoicesController < ApplicationController
   end
   
   def send_invoice_notification
+    
     @i = Invoice.find(params[:invoice_id])
     
+
     # Tell the InvoiceMailer to send a notification email
       InvoiceMailer.invoice_notification(@i).deliver
       

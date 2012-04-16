@@ -1,4 +1,6 @@
 Invoicebear::Application.routes.draw do
+  get "dashboard/show"
+
   resources :payment_notifications
 
   get "public_pages/index"
@@ -18,6 +20,8 @@ Invoicebear::Application.routes.draw do
   # Sample of regular route:
      match 'features' => 'public_pages#features', :as => :features
      match 'pricing' => 'public_pages#pricing', :as => :pricing
+     
+     match 'dashboard' => 'dashboard#show', :as => :dashboard
      
      match 'inv/:invoice_id' => 'invoices#client_show', :as => :client_show
      

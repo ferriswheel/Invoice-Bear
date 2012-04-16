@@ -23,10 +23,9 @@
         <a class="brand" href="#">InvoiceBear</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><%= link_to "Dashboard", invoices_path %></li>
+            <li><%= link_to "Dashboard", dashboard_path %></li>
             <li><%= link_to "Invoices", invoices_path %></li>
             <li><%= link_to "Contacts", contacts_path %></li>
-			<li><%= link_to "Reports", contacts_path %></li>
           </ul>
 		  <ul class="nav pull-right">
 			<% if current_user %>

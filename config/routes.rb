@@ -21,6 +21,10 @@ Invoicebear::Application.routes.draw do
      match 'features' => 'public_pages#features', :as => :features
      match 'pricing' => 'public_pages#pricing', :as => :pricing
      
+     match 'login' => 'user_sessions#new', :as => :login
+     match 'logout' => 'user_sessions#destroy', :as => :logout
+     match 'signup' => 'users#new', :as => :sign_up
+     
      match 'dashboard' => 'dashboard#show', :as => :dashboard
      
      match 'inv/:invoice_id' => 'invoices#client_show', :as => :client_show

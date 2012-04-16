@@ -1,15 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="span12">
-<h1>Create New Invoice</h1>
-<% if current_user.contacts.count == 0 %>
-	<p id="notice" class="alert alert-warn">You don't have any contacts yet to create an invoice for. Please <%= link_to "Create a Contact", new_contact_path %> first.</p>
-<% else %>
-<hr>
-<%= render 'form' %>
-
-<%= link_to 'Back', invoices_path %>
-</div>
+<div class="row">
+	<div class="span12">
+		<h1>Create New Invoice</h1>
+		<% if current_user.contacts.count == 0 %>
+		<p id="notice" class="alert alert-warn">You don't have any contacts yet to create an invoice for. Please <%= link_to "Create a Contact", new_contact_path %> first.</p>
+		<% else %>
+		<hr>
+		<%= render 'form' %>
 </div>
 </div>
 <% end %>

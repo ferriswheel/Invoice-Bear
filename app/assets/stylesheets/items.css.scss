@@ -1,3 +1,6 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.invoice_description textarea, .invoice_unit_cost input, .invoice_quantity input, .invoice_discount input {height:30px;}

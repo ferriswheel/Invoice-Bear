@@ -35,5 +35,12 @@ class Invoice < ActiveRecord::Base
     end
     "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
   end
+  
+  scope :outstanding, lambda { where(['status != ?', "paid"]) }
+  
+  def total_owed
+    @invoices.sum(:total)
+  end
+
 end
 

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="span12">
+    	<h1>Dashboard</h1>
+		<div class="outstanding_invoices span6">
+			<h3>Outstanding Invoices:</h3>
+			<% @invoices.outstanding.each do |inv| %>
+				<p><%= inv.title %> (<%= inv.contact.bname %>) <%= number_to_currency(inv.total)%> <%= link_to "View", inv %></p>
+			<% end %>
+		</div><!-- recent activity -->
+		<div class="outstanding_invoices span5">
+			<h3>You are owed:</h3>
+			<p><%= number_to_currency(@owed) %></p>
+			<h3>You billed:</h3>
+			<p><%= number_to_currency(@billed) %></p>
+			<h3>You collected:</h3>
+			<p><%= number_to_currency(@received) %></p>
+		</div><!-- recent activity -->
+
+	</div>
+  </div>
+</div>

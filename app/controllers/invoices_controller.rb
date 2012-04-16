@@ -110,6 +110,13 @@ class InvoicesController < ApplicationController
       end
     end
   end
+  
+  def dashboard
+    @invoices = Invoice.where(:user_id => current_user.id)
+    @owed = @invoices.outstanding.each.sum {|i| i.total }
+    @billed = @invoices.each.sum {|i| i.total }
+    @received = @billed - @owed
+  end
 
   # DELETE /invoices/1
   # DELETE /invoices/1.json

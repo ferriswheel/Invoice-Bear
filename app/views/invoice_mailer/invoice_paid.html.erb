@@ -4,7 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Invoice was successfully paid</h1>
+    <h1>You have just been paid <%= number_to_currency(@invoice.total) %> for Invoice #<%= @invoice.number %></h1>
     <p>
     </p>
     <p>-InvoiceBear Team</p>

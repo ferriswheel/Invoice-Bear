@@ -7,7 +7,7 @@
  *= require_tree . 
 */
 
-body {margin-top:70px;padding:0;background:#006363 !important;font-family:Verdana,Arial,Times;}
+body {margin-top:70px;padding:0;background:#5FBDCE !important;font-family:Verdana,Arial,Times;}
 
 .main-content {background:white;padding:10px 5px 10px 5px;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-moz-box-shadow: 0 0 5px 2px #1D7373;
 -webkit-box-shadow: 0 0 5px 2px #1D7373;
@@ -17,4 +17,4 @@ span.ribbon {background-color:grey;width:140px;padding:7px;position:absolute;top
 -moz-border-radius-topright: 5px;color:white;text-align:center;border:4px dashed #FF9640;
 border-top-right-radius: 5px;font-size:14px;font-weight:bold;text-transform:uppercase;font-family: 'Maven Pro', sans-serif;font-size:18px;}
 
-.footer {text-align:center;padding:10px 0px;color:white;}
+.footer, footer {text-align:center;padding:10px 0px;color:grey;}

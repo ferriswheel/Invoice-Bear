@@ -20,6 +20,8 @@ Invoicebear::Application.routes.draw do
   # Sample of regular route:
      match 'features' => 'public_pages#features', :as => :features
      match 'pricing' => 'public_pages#pricing', :as => :pricing
+     match 'about' => 'public_pages#about', :as => :about
+     match 'contact' => 'public_pages#contact', :as => :contact
      
      match 'login' => 'user_sessions#new', :as => :login
      match 'logout' => 'user_sessions#destroy', :as => :logout
